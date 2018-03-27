@@ -16,7 +16,7 @@ public class SwingUI extends JFrame implements ActionListener
 	JTextField loginField = new JTextField("", 10);
 	
 	JLabel labelPassword = new JLabel("PASSWORD:");
-	JTextField passwordField = new JTextField("", 10);
+	JPasswordField  passwordField = new JPasswordField ("", 10);
 	
 	JLabel labelBoard = new JLabel("targetBoard:");
 	JTextField boardField = new JTextField("", 10);
@@ -81,9 +81,10 @@ public class SwingUI extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		String login = loginField.getText();
-		String password = passwordField.getText();
+		String password = new String(passwordField.getPassword());
 		String boardName = boardField.getText();
 		Main.InitializeSelenium(login, password, boardName);
+		setVisible(false);
 	}
 	
 }
